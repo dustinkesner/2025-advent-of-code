@@ -1,0 +1,32 @@
+{
+  "name": "2025-advent-of-code",
+  "version": "1.0.0",
+  "description": "2025 Advent of Code solutions in TypeScript",
+  "homepage": "https://github.com/dustinkesner/2025-advent-of-code#readme",
+  "bugs": {
+    "url": "https://github.com/dustinkesner/2025-advent-of-code/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dustinkesner/2025-advent-of-code.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watchAll --watchman=false",
+    "build": "tsc",
+    "start:day1": "npm run build && node dist/day1/index.js"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.0",
+    "@typescript-eslint/parser": "^8.48.0",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.5",
+    "typescript": "^5.9.3"
+  }
+}
