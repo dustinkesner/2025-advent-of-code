@@ -24,15 +24,32 @@ export function countZeros(inputs: string[]): number {
   inputs.forEach((item) => {
     const direction = item.charAt(0);
     const steps = parseInt(item.slice(1), 10);
+    const len = dial.length;
+    const residual = steps % len;
+    
+    count += Math.floor(steps / len);
 
-    if (direction === 'R') {
-      position = rotateRight(dial, position, steps);
-    } else if (direction === 'L') {
-      position = rotateLeft(dial, position, steps);
-    }
-
-    if (dial[position] === 0) {
-      count++;
+    switch (direction) {
+      case 'R': {
+        const start = position;
+        const r = (len - start) % len;
+        if (r !== 0 && residual >= r) {
+          count += 1;
+        }
+        position = rotateRight(dial, position, residual);
+        break;
+      }
+      case 'L': {
+        const start = position;
+        const r = start % len;
+        if (r !== 0 && residual >= r) {
+          count += 1;
+        }
+        position = rotateLeft(dial, position, residual);
+        break;
+      }
+      default:
+        throw new Error(`Invalid direction '${direction}' in input '${item}'. Expected 'R' or 'L'.`);
     }
   })
 
@@ -40,3 +57,8 @@ export function countZeros(inputs: string[]): number {
 }
 
 console.log('The count of zeros is:', countZeros(inputs));
+
+// Guess 1 = 4096 is too low
+// Guess 2 = 6296 is too high
+// Guess 3 = 5874 is too low
+// Guess 4 = 5923 is correct!

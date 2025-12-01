@@ -25,9 +25,13 @@ describe("day 1 tests", () => {
     expect(result).toEqual(expected);
   });
 
-  it("count the number of times the result is zero", () => {
-    const inputs = ["R53", "L6", "R3"];
+  test.each([
+    { inputs: ["R3", "L3", "R4", "L2"], expected: 0 },
+    { inputs: ["R53", "L6", "R3"], expected: 3 },
+    { inputs: ["R1000"], expected: 10 },
+    { inputs: ["L68", "L30", "R48", "L5", "R60", "L55", "L1", "L99", "R14", "L82"], expected: 6 },
+  ])("count the number of times the result points at zero", ({ inputs, expected }) => {
     const result = countZeros(inputs);
-    expect(result).toBe(1);
+    expect(result).toBe(expected);
   });
 });
