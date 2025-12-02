@@ -18,7 +18,10 @@
     "test": "jest",
     "test:watch": "jest --watchAll --watchman=false",
     "build": "tsc",
-    "start:day1": "npm run build && node dist/day1/index.js"
+    "start:day1": "npm run build && node dist/day1/index.js",
+    "test:day1": "jest day1/index.test.ts",
+    "start:day2": "npm run build && node dist/day2/index.js",
+    "test:day2": "jest day2/index.test.ts"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
