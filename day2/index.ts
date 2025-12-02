@@ -18,13 +18,34 @@ export function splitId(id: number): [string, string] {
   return [firstHalf, secondHalf];
 }
 
+export function isIdInvalid(id: number): boolean {
+  const idStr = id.toString();
+  const len = idStr.length;
+
+  for (let i = 1; i < len; i++) {
+    const idPartsArray = idStr.split(idStr.substring(0, i))
+
+    if (new Set(idPartsArray).size === 1) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
 export function getInvalidIdsInRange(rangeStart: number, rangeEnd: number) {
   const invalidIds: number[] = [];
 
   for (let id = rangeStart; id <= rangeEnd; id++) {
-    const [firstHalf, secondHalf] = splitId(id);
+    /** Part 1 solution **/
+    // const [firstHalf, secondHalf] = splitId(id);
     
-    if (firstHalf === secondHalf) {
+    // if (firstHalf === secondHalf) {
+    //   invalidIds.push(id);
+    // }
+
+    /** Part 2 solution **/
+    if (isIdInvalid(id)) {
       invalidIds.push(id);
     }
   }
@@ -48,4 +69,8 @@ export function addInvalidIds(productIdRange: string): number {
 
 console.log(addInvalidIds(input));
 
+// Part 1
 // Guess 1 = 23701357374 is correct!
+
+// Part 2
+// Guess 1 = 34284458938 is correct!
