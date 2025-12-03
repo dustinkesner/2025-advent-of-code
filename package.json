@@ -18,15 +18,19 @@
     "test": "jest",
     "test:watch": "jest --watchAll --watchman=false",
     "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
     "start:day1": "npm run build && node dist/day1/index.js",
     "test:day1": "jest day1/index.test.ts",
     "start:day2": "npm run build && node dist/day2/index.js",
-    "test:day2": "jest day2/index.test.ts"
+    "test:day2": "jest day2/index.test.ts",
+    "start:day3": "npm run build && node dist/day3/index.js",
+    "test:day3": "jest day3/index.test.ts"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.48.0",
-    "@typescript-eslint/parser": "^8.48.0",
+    "@typescript-eslint/eslint-plugin": "^8.48.1",
+    "@typescript-eslint/parser": "^8.48.1",
     "eslint": "^9.39.1",
     "jest": "^30.2.0",
     "ts-jest": "^29.4.5",
