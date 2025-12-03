@@ -4,11 +4,11 @@ import {
   parseRanges,
   splitId,
   addInvalidIds,
-} from "./index";
+} from './index';
 
-xdescribe("day 2, part 1 tests", () => {
-  it("parses ranges correctly", () => {
-    const rangeStr = "10-20,30-40,50-60";
+xdescribe('day 2, part 1 tests', () => {
+  it('parses ranges correctly', () => {
+    const rangeStr = '10-20,30-40,50-60';
     const expected = [
       [10, 20],
       [30, 40],
@@ -22,12 +22,12 @@ xdescribe("day 2, part 1 tests", () => {
     { id: 11, expected: ['1', '1'] },
     // { id: 123, expected: ['1', '3'] },
     { id: 5678, expected: ['56', '78'] }
-  ])("splits ID correctly for $id", ({ id, expected }) => {
+  ])('splits ID correctly for $id', ({ id, expected }) => {
     const result = splitId(id);
     expect(result).toEqual(expected);
   });
 
-  it("gets invalid IDs in range", () => {
+  it('gets invalid IDs in range', () => {
     const rangeStart = 998;
     const rangeEnd = 1011;
 
@@ -36,9 +36,9 @@ xdescribe("day 2, part 1 tests", () => {
     expect(results).toEqual([1010]);
   });
 
-  it("add invalid IDs", () => {
+  it('add invalid IDs', () => {
     const productIdRange =
-      "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124";
+      '11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124';
 
     const result = addInvalidIds(productIdRange);
 
@@ -55,7 +55,7 @@ describe('day 2, part 2 tests', () => {
     446446,
     565656,
     2121212121
-  ])("check if %s is an invalid product id", (id) => {
+  ])('check if %s is an invalid product id', (id) => {
       const result = isIdInvalid(id);
       expect(result).toBe(true);
   });
@@ -66,7 +66,7 @@ describe('day 2, part 2 tests', () => {
     1001,
     1234567,
     12321,
-  ])("check if %s is a valid product id", (id) => {
+  ])('check if %s is a valid product id', (id) => {
       const result = isIdInvalid(id);
       expect(result).toBe(false);
   });
@@ -83,11 +83,11 @@ describe('day 2, part 2 tests', () => {
     {range: [565653, 565659], expected: [565656]},
     {range: [824824821, 824824827], expected: [824824824]},
     {range: [2121212118, 2121212124], expected: [2121212121]},
-  ])("return invalid IDs in range for $range", ({range, expected}) => {
+  ])('return invalid IDs in range for $range', ({range, expected}) => {
     const result = getInvalidIdsInRange(range[0], range[1]);
 
     console.log('Result:', result, 'Expected:', expected);
 
     expect(expected).toEqual(result);
-  })
+  });
 });

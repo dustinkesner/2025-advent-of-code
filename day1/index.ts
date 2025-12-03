@@ -51,7 +51,7 @@ export function countZeros(inputs: string[]): number {
       default:
         throw new Error(`Invalid direction '${direction}' in input '${item}'. Expected 'R' or 'L'.`);
     }
-  })
+  });
 
   return count;
 }
