@@ -20,10 +20,7 @@ export function countXs(matrix: string[][]): number {
 }
 
 export function createMatrix(matrixString: string): string[][] {
-  // console.log('Creating matrix from string:\n', matrixString);
-  const matrix = matrixString.trim().split('\n').map(line => line.trim().split(''));
-  // console.log('Created matrix:', matrix);
-  return matrix;
+  return matrixString.trim().split('\n').map(line => line.trim().split(''));
 }
 
 export function movePaperRolls(matrix: string[][]): string[][] {
@@ -52,11 +49,32 @@ export function movePaperRolls(matrix: string[][]): string[][] {
   return newMatrix;
 }
 
+export function removePaperRolls(matrixString: string): number {
+  let previousCount = -1;
+  let count = 0;
+  let matrix = createMatrix(matrixString);
+
+  while (count !== previousCount) {
+    previousCount = count;
+    matrix = movePaperRolls(matrix);
+    count = countXs(matrix);
+  }
+
+  return count;
+}
+
 // Only run when executed directly, not when imported by tests
 if (require.main === module) {
-  const count = countXs(movePaperRolls(createMatrix(getInput())));
+  /** Part 1 **/
+  // const count = countXs(movePaperRolls(createMatrix(getInput())));
+
+  /** Part 2 **/
+  const count = removePaperRolls(getInput());
   console.log('The count of x\'s after moving paper rolls is:', count);
 }
 
 // Part 1
 // Guess 1 = 1363 is correct!
+
+// Part 2
+// Guess 1 = 8184 is correct!

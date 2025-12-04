@@ -1,33 +1,40 @@
-import { countXs, createMatrix, movePaperRolls } from './index';
+import {
+  countXs,
+  createMatrix,
+  movePaperRolls,
+  removePaperRolls,
+} from './index';
+
+const input = `
+    ..@@.@@@@.
+    @@@.@.@.@@
+    @@@@@.@.@@
+    @.@@@@..@.
+    @@.@@@@.@@
+    .@@@@@@@.@
+    .@.@.@.@@@
+    @.@@@.@@@@
+    .@@@@@@@@.
+    @.@.@@@.@.`;
+const output = `
+    ..xx.xx@x.
+    x@@.@.@.@@
+    @@@@@.x.@@
+    @.@@@@..@.
+    x@.@@@@.@x
+    .@@@@@@@.@
+    .@.@.@.@@@
+    x.@@@.@@@@
+    .@@@@@@@@.
+    x.x.@@@.x.`;
 
 describe('day 2, part 1 tests', () => {
-  const input = `
-      ..@@.@@@@.
-      @@@.@.@.@@
-      @@@@@.@.@@
-      @.@@@@..@.
-      @@.@@@@.@@
-      .@@@@@@@.@
-      .@.@.@.@@@
-      @.@@@.@@@@
-      .@@@@@@@@.
-      @.@.@@@.@.`;
-  const output = `
-      ..xx.xx@x.
-      x@@.@.@.@@
-      @@@@@.x.@@
-      @.@@@@..@.
-      x@.@@@@.@x
-      .@@@@@@@.@
-      .@.@.@.@@@
-      x.@@@.@@@@
-      .@@@@@@@@.
-      x.x.@@@.x.`;
-
   it('should mark the correct positions with x', () => {
     const inputMatrix = createMatrix(input);
     const result = movePaperRolls(inputMatrix);
-    expect(result.map(row => row.join('')).join('\n')).toBe(output.replace(/ /g, '').trim());
+    expect(result.map((row) => row.join('')).join('\n')).toBe(
+      output.replace(/ /g, '').trim()
+    );
   });
 
   it('should have 13 x\'s in output', () => {
@@ -41,5 +48,12 @@ describe('day 2, part 1 tests', () => {
     const outputMatrix = movePaperRolls(inputMatrix);
     const result = countXs(outputMatrix);
     expect(result).toBe(13);
+  });
+});
+
+describe('day 2, part 2 tests', () => {
+  it('should have 43 paper rolls removed', () => {
+    const result = removePaperRolls(input);
+    expect(result).toBe(43);
   });
 });
