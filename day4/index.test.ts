@@ -28,7 +28,7 @@ const output = `
     .@@@@@@@@.
     x.x.@@@.x.`;
 
-describe('day 2, part 1 tests', () => {
+describe('day 5, part 1 tests', () => {
   it('should mark the correct positions with x', () => {
     const inputMatrix = createMatrix(input);
     const result = movePaperRolls(inputMatrix);
@@ -51,7 +51,7 @@ describe('day 2, part 1 tests', () => {
   });
 });
 
-describe('day 2, part 2 tests', () => {
+describe('day 5, part 2 tests', () => {
   it('should have 43 paper rolls removed', () => {
     const result = removePaperRolls(input);
     expect(result).toBe(43);

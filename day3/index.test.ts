@@ -1,6 +1,6 @@
 import { calculateJoltageRatingsSum, getJoltage } from './index';
 
-describe('day 2, part 1 tests', () => {
+describe('day 3, part 1 tests', () => {
   const testCases = [
     { bank: '987654321111111', joltage: 98 },
     { bank: '811111111111119', joltage: 89 },
@@ -24,7 +24,7 @@ describe('day 2, part 1 tests', () => {
   });
 });
 
-describe('day 2, part 2 tests', () => {
+describe('day 3, part 2 tests', () => {
   const testCases = [
     { bank: '987654321111111', joltage: 987654321111, batteries: 12 },
     { bank: '811111111111119', joltage: 811111111119, batteries: 12 },
