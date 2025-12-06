@@ -1,5 +1,6 @@
 import {
   getCountOfFreshIngredients,
+  getCountOfFreshIngredientIdsInRange,
   getFreshIngredientRanges,
   getIngredientIds,
 } from './index';
@@ -42,5 +43,13 @@ describe('day 5, part 1 tests', () => {
 
     const countOfFreshIngredients = getCountOfFreshIngredients(ranges, ids);
     expect(countOfFreshIngredients).toBe(3);
+  });
+});
+
+describe('day 5, part 2 tests', () => {
+  it('should count the number of fresh ingredient ids in the ranges', () => {
+    const ranges = getFreshIngredientRanges(input);
+    const countOfFreshIngredientIdsInRange = getCountOfFreshIngredientIdsInRange(ranges);
+    expect(countOfFreshIngredientIdsInRange).toBe(14);
   });
 });
