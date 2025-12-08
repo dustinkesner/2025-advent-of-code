@@ -32,7 +32,7 @@
     "test:day5": "jest day5/index.test.ts",
     "start:day6": "cp day6/input.txt dist/day6/ 2>/dev/null || true && npm run build && node dist/day6/index.js",
     "test:day6": "jest day6/index.test.ts",
-    "start:day7": "npm run build && node dist/day7/index.js",
+    "start:day7": "cp day7/input.txt dist/day7/ 2>/dev/null || true && npm run build && node dist/day7/index.js",
     "test:day7": "jest day7/index.test.ts",
     "start:day8": "npm run build && node dist/day8/index.js",
     "test:day8": "jest day8/index.test.ts",
