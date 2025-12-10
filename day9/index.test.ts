@@ -2,6 +2,7 @@ import {
   Coordinates,
   calculateArea,
   findLargestArea,
+  getOppositeCorners,
   loopThroughCombinations,
   mapToCoordinates
 } from './index';
@@ -42,5 +43,22 @@ describe('day 9, part 1 tests', () => {
     const coords: Array<Coordinates> = mapToCoordinates(input);
     const largestArea = findLargestArea(coords);
     expect(largestArea).toBe(50);
+  });
+});
+
+describe('day 9, part 2 tests', () => {
+  it.each([
+    { coords: [[2, 3], [7, 5]], expected: [[2, 5], [7, 3]] },
+    { coords: [[0, 0], [4, 4]], expected: [[0, 4], [4, 0]] },
+    { coords: [[1, 6], [5, 2]], expected: [[1, 2], [5, 6]] },
+  ])('should get missing corners for %o', ({ coords, expected }) => {
+    const corners = getOppositeCorners(coords as Array<Coordinates>);
+    expect(corners).toEqual(expected);
+  });
+
+  it('should find the largest area from the coordinates in boundary', () => {
+    const coords: Array<Coordinates> = mapToCoordinates(input);
+    const largestArea = findLargestArea(coords, true);
+    expect(largestArea).toBe(24);
   });
 });
